@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) {
+        data = val;
+        left=right=NULL;
+    }
+};
+
+void inorder(Node* root) {
+    // base case
+    if(root == NULL) return;
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
+
+int main() {
+    struct Node* root = new Node(5);
+    root->left = new Node(78);
+    root->right = new Node(89);
+    root->left->right = new Node(99);
+    inorder(root);
+    cout<<endl;
+    
+    return 0;
+}
